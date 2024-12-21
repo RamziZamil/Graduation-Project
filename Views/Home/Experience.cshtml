@@ -1,0 +1,231 @@
+﻿@model List<Event>
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Experience</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    <style>
+      
+        h1, h2, h3, h4, h5, h6 {
+            letter-spacing: 5px;
+        }
+
+        .w3-xxlarge {
+            color: white;
+        }
+
+        .row {
+            display: flex;
+            justify-content: space-between; /* Adjust alignment as needed */
+            flex-wrap: wrap; /* Allow items to wrap to the next line if the width is not enough */
+        }
+
+        .column {
+            width: calc(33.33% - 20px); /* Adjust width and margin as needed */
+            background-color: #f2f2f2;
+            border-radius: 8px;
+            padding: 20px;
+            box-sizing: border-box;
+            margin: 10px; /* Added margin between columns */
+            margin-bottom: 20px; /* Added margin between rows */
+        }
+
+        
+
+        .learn-more-btn {
+            display: inline-block;
+            padding: 10px 20px;
+            background-color: #fff;
+            border: 2px solid #007bff;
+            border-radius: 5px;
+            color: #000; /* Change text color to black */
+            text-decoration: none;
+        }
+
+            .learn-more-btn:hover {
+                transition: 0.7s;
+                background-color: #007bff;
+                color: #fff; /* Change text color to white on hover */
+            }
+
+        .w3-main {
+            max-width: 1200px;
+            margin: auto;
+            padding: 20px;
+            margin-top: 100px;
+        }
+
+        .w3-quarter {
+            margin-bottom: 16px;
+            text-align: center;
+            transform: scale(1.1);
+            padding: 30px;
+            width: 25%; /* Adjust this value based on your layout */
+            box-sizing: border-box; /* Include padding and border in the element's total width and height */
+        }
+
+
+            .w3-quarter img {
+                width: 100%;
+                border-radius: 8px;
+                transition: opacity 0.3s ease-in-out;
+            }
+
+                .w3-quarter img:hover {
+                    opacity: 0.7; /* Adjust the opacity value as needed */
+                }
+
+        h1, h3 {
+            color: #333;
+        }
+
+        p {
+            color: #666;
+        }
+
+        .section-header {
+            margin-bottom: 25px;
+            position: relative;
+            padding-bottom: 20px;
+        }
+
+            .section-header::before {
+                content: '';
+                position: absolute;
+                display: block;
+                width: 60px;
+                height: 5px;
+                background: #f82249;
+                bottom: 0;
+                left: calc(50% - 25px);
+            }
+
+            .section-header h2 {
+                font-size: 36px;
+                text-transform: uppercase;
+                text-align: center;
+                font-weight: 700;
+                margin-bottom: 10px;
+            }
+
+            .section-header p {
+                text-align: center;
+                padding: 0;
+                margin: 0;
+                font-size: 18px;
+                font-weight: 500;
+                color: #9195a2;
+            }
+    </style>
+</head>
+<body>
+    <header>
+        @Html.Partial("_Header")
+    </header>
+
+
+    <!-- Header -->
+    <header class="w3-display-container w3-content w3-wide" style="max-width:1600px;min-width:500px" id="home">
+        <img class="w3-image" src="/img/sliderdiving.png" alt="Scuba Diving" width="1600" height="800">
+        
+    </header>
+
+
+	<div class="w3-main">
+		<div class=" w3-center" id="events">
+			<div class="section-header">
+				<h2>Experience</h2>
+			</div>
+			@foreach (var item in Model)
+			{
+				if (item.Tickects == 0)
+				{
+					<div class="w3-quarter">
+
+						<img src="@Url.Content(item.Event_Image)" alt="Image" />
+						<h3>@item.EventTitle (SOLDOUT)</h3>
+						<p>The superstar “ADAM”, a memorable night for a live concert that will take you on a journey of togetherness!</p>
+					</div>
+				}
+				else
+				{
+					<div class="w3-quarter">
+						<a asp-action="ticket" asp-route-id="@item.ID"> @item.ID</a>
+						<img src="@Url.Content(item.Event_Image)" alt="Image" />
+						<h3>@item.EventTitle </h3>
+						<p>The superstar “ADAM”, a memorable night for a live concert that will take you on a journey of togetherness!</p>
+					</div>
+				}
+
+			}
+		</div>
+	</div>
+
+	<!-- Page content -->
+    <div class="w3-content" style="max-width:1100px">
+		
+        <!-- Scuba Diving Section -->
+        <div class="w3-row w3-padding-64" id="about">
+            <hr />
+            <div class="w3-col m6 w3-padding-large w3-hide-small imagee">
+                <img src="/img/Diving.jpg" class="w3-round w3-image " alt="Table Setting" width="600" height="750">
+            </div>
+
+            <div class="w3-col m6 w3-padding-large">
+                <h1 class="w3-center">Scuba Diving</h1><br>
+                <p class="w3-large">
+                    We offer Diving and Snorkelling in Aqaba Located in the heart of Aqaba, Jordan, Coral Garden Diving Center is just a
+                    few steps away from the beautiful Red Sea. Coral Garden is an authorized PADI instructor development center (#27943)
+                    with a 5-star reputation - just take a look at our reviews on Google and TripAdvisor
+                </p>
+               
+            </div>
+        </div>
+    </div>
+
+        <hr>
+        
+    <div class="w3-row w3-padding-64" id="about">
+        <div class="w3-col m6 w3-padding-large w3-hide-small imagee">
+            <img src="/img/Karting.jpg" class="w3-round w3-image " alt="Table Setting" width="600" height="750">
+        </div>
+
+        <div class="w3-col m6 w3-padding-large">
+            <h1 class="w3-center">Karting</h1><br>
+            <p class="w3-large">
+                Karting is a form of open-wheel motorsport that involves driving small,
+                four-wheeled vehicles known as go-karts or karts on tracks or designated karting circuits. Karts are typically powered by small,high-performance engines, and the sport
+                is popular for its accessibility, affordability, and the opportunity it provides for aspiring racing drivers to develop their skills.
+            </p>
+        </div>
+    </div>
+  
+       
+
+        <hr>
+
+        <div class="w3-row w3-padding-64" id="about">
+        <div class="w3-col m6 w3-padding-large w3-hide-small imagee">
+            <img src="/img/phobia.jpg" class="w3-round w3-image imagee" alt="Table Setting" width="600" height="750">
+            </div>
+
+            <div class="w3-col m6 w3-padding-large">
+                <a href="/Home/Booking"><h1 class="w3-center">Escape The Room </h1></a><br>
+                <p class="w3-large">
+                    The scariest thing that can ever happen to you! Coming to phobia is something fated, but the choice remains in your hands between ESCAPING or DYING!
+                    but even dying is not the worst option because nobody rests in peace inside phobia! What you are going to see, face, and feel is not like
+                    anything else that places alive, and it fed from your fears, your hope until its last drop! eventually it all depends on you.
+                    You can face your inner fear, can you face phobia?!
+                </p>
+
+            </div>
+        </div>
+
+    
+        
+       
+</body>
+</html>
+

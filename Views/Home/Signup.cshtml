@@ -1,0 +1,114 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        bodyy {
+            
+            margin: 0;
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: white;
+        }
+
+        
+
+		.main-containerr {
+			margin-top: 100px;
+            display: flex;
+            justify-content: space-between;
+            padding: 60px;
+            background-color: #f0f0f0;
+            border-radius: 20px;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+        }
+
+        .containerr {
+            border: 2px solid red; /* Use red color for borders */
+            width: 48%;
+            padding: 40px;
+            border-radius: 15px;
+            background-color: white;
+        }
+
+        .title {
+            font-size: 32px;
+            font-weight: bold;
+            color: red;
+            text-align: center;
+        }
+
+        .sub-containerr {
+            text-align: center;
+            padding: 20px;
+        }
+
+        .button {
+            display: inline-block;
+            padding: 15px 30px;
+            background-color: black; /* Use black color for buttons */
+            color: white;
+            text-decoration: none;
+            border-radius: 8px;
+            font-size: 20px;
+            transition: background-color 0.3s;
+        }
+
+            .button:hover {
+                background-color: #333; /* Darken the color on hover */
+            }
+
+        .login-section {
+            margin-top: -50px;
+            text-align: center;
+        }
+
+        .login-link {
+            color: red;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+            .login-link:hover {
+                text-decoration: underline;
+            }
+
+
+    </style>
+    <title>Create Account</title>
+</head>
+<body>
+    <header>
+        @Html.Partial("_Header")
+    </header>
+    <div class="bodyy">
+
+ 
+
+    <div class="main-containerr">
+        <div class="containerr">
+            <div class="title">I'm an Event Creator</div>
+            <div class="sub-containerr">
+                <br /><br />
+                    <a href="/Events/OrganizerRegister" class="button">Sign Up</a>
+            </div>
+        </div>
+
+        <div class="containerr" style="margin-left: 20px;">
+            <div class="title">I'm a Guest looking for an Event</div>
+            <div class="sub-containerr">
+                    <a href="/Home/Register" class="button">Sign Up</a>
+            </div>
+        </div>
+    </div>
+	</div>
+    <div class="login-section">
+        <p>Already have an account? <a href="/Home/Login2" class="login-link">Log In</a></p>
+    </div>
+    
+</body>
+</html>
